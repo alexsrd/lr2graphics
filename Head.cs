@@ -18,8 +18,8 @@ namespace lr2graphics
         public Rectangle rec = new Rectangle();
         public Head()
         {
-            rec.X = Normalize.NormalizeX(5);
-            rec.Y = Normalize.NormalizeY(6);
+            rec.X = Normalize.NormalizeX(0);
+            rec.Y = Normalize.NormalizeY(-1);
             
             rec.Width = 10;
             rec.Height = 10;
@@ -39,7 +39,11 @@ namespace lr2graphics
             p1.X = Normalize.NormalizeX(p2.X) - Normalize.NormalizeX(p1.X);
             p1.Y = Normalize.NormalizeY(p2.Y) - Normalize.NormalizeX(p1.Y);
             rec.X += p1.X;
-            rec.Y += p2.Y;
+            
+            if(dy != 0)
+            {
+                rec.Y += p2.Y;
+            }
         }
     }
 }
