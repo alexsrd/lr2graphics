@@ -19,8 +19,8 @@ namespace lr2graphics
         public Head()
         {
             rec.X = Normalize.NormalizeX(0);
-            rec.Y = Normalize.NormalizeY(-1);
-            
+            rec.Y = Normalize.NormalizeY(0);
+
             rec.Width = 10;
             rec.Height = 10;
         }
@@ -31,17 +31,17 @@ namespace lr2graphics
             e.DrawEllipse(new Pen(Brushes.Red), rec);
         }
 
-        public void Translate(int dx,int dy)
+        public void Translate(int dx, int dy)
         {
-            
+
             Point p1 = new Point(Normalize.DenormalizeX(rec.X), Normalize.DenormalizeY(rec.Y));
-            Point p2 = new Point(p1.X + dx,p1.Y+dy);
+            Point p2 = new Point(p1.X + dx, p1.Y + dy);
             p1.X = Normalize.NormalizeX(p2.X) - Normalize.NormalizeX(p1.X);
-            p1.Y = Normalize.NormalizeY(p2.Y) - Normalize.NormalizeX(p1.Y);
             rec.X += p1.X;
-            
-            if(dy != 0)
+
+            if (dy != 0)
             {
+                p1.Y = Normalize.NormalizeY(p2.Y) - Normalize.NormalizeX(p1.Y);
                 rec.Y += p2.Y;
             }
         }

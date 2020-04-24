@@ -13,6 +13,7 @@ namespace lr2graphics
     public partial class Form1 : Form
     {
         int oldTranslateX = 0;
+        int oldTranslateY = 0;
         Head head;
         public Form1()
         {
@@ -55,6 +56,14 @@ namespace lr2graphics
             int value = Convert.ToInt32(numericUpDown1.Value) -  oldTranslateX;
             oldTranslateX = Convert.ToInt32(numericUpDown1.Value);
             head.Translate(value,0);
+            pictureBox.Refresh();
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+            int value = Convert.ToInt32(numericUpDown2.Value) - oldTranslateY;
+            oldTranslateY = Convert.ToInt32(numericUpDown2.Value);
+            head.Translate(0, -value);
             pictureBox.Refresh();
         }
     }
