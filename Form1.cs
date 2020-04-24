@@ -52,7 +52,7 @@ namespace lr2graphics
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            int value = Convert.ToInt32(numericUpDown1.Value) - oldTranslateX;
+            int value = Convert.ToInt32(numericUpDown1.Value) -  oldTranslateX;
             oldTranslateX = Convert.ToInt32(numericUpDown1.Value);
             head.Translate(value,0);
             pictureBox.Refresh();
