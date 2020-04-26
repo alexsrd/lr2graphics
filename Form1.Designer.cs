@@ -76,6 +76,7 @@
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
             this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
+            this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseUp);
             // 
             // translateX
             // 
@@ -394,6 +395,7 @@
             this.checkFoot1.TabIndex = 24;
             this.checkFoot1.Text = "Left Foot";
             this.checkFoot1.UseVisualStyleBackColor = true;
+            this.checkFoot1.CheckedChanged += new System.EventHandler(this.CheckParts);
             // 
             // checkFoot2
             // 
@@ -404,6 +406,7 @@
             this.checkFoot2.TabIndex = 25;
             this.checkFoot2.Text = "Right Foot";
             this.checkFoot2.UseVisualStyleBackColor = true;
+            this.checkFoot2.CheckedChanged += new System.EventHandler(this.CheckParts);
             // 
             // checkTail
             // 
@@ -414,6 +417,7 @@
             this.checkTail.TabIndex = 26;
             this.checkTail.Text = "Tail";
             this.checkTail.UseVisualStyleBackColor = true;
+            this.checkTail.CheckedChanged += new System.EventHandler(this.CheckParts);
             // 
             // Form1
             // 

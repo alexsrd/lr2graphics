@@ -150,7 +150,7 @@ namespace lr2graphics
         private void checkBody_CheckedChanged(object sender, EventArgs e)
         {
             CheckBodyPart.Body = checkBody.Checked;
-            if(checkBody.Checked)
+            if (checkBody.Checked)
             {
                 CheckBodyPart.Foot1 = checkFoot1.Checked = true;
                 CheckBodyPart.Foot2 = checkFoot2.Checked = true;
@@ -162,6 +162,13 @@ namespace lr2graphics
                 CheckBodyPart.Foot2 = checkFoot2.Checked = false;
                 CheckBodyPart.Tail = checkTail.Checked = false;
             }
+        }
+
+        private void pictureBox_MouseUp(object sender, MouseEventArgs e)
+        {
+            RelativePoint.CenterX = e.X;
+            RelativePoint.CenterY = e.Y;
+            pictureBox.Refresh();
         }
     }
 }
