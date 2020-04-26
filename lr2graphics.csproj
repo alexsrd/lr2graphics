@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Body.cs" />
+    <Compile Include="CheckBodyPart.cs" />
     <Compile Include="DecartCoord.cs" />
     <Compile Include="Ear.cs" />
     <Compile Include="Eye.cs" />
@@ -59,10 +60,13 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Head.cs" />
-    <Compile Include="Nail.cs" />
+    <Compile Include="Tail.cs" />
     <Compile Include="Normalize.cs" />
+    <Compile Include="Nose.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Pupil.cs" />
+    <Compile Include="RelativePoint.cs" />
     <Compile Include="TransformsObj.cs" />
     <Compile Include="Whisker.cs" />
     <EmbeddedResource Include="Form1.resx">

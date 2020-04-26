@@ -1,0 +1,10 @@
+C:\Users\sanya\OneDrive\Рабочий стол\source\repos\lr2graphics\bin\Release\lr2graphics.exe.config
+C:\Users\sanya\OneDrive\Рабочий стол\source\repos\lr2graphics\bin\Release\lr2graphics.exe
+C:\Users\sanya\OneDrive\Рабочий стол\source\repos\lr2graphics\bin\Release\lr2graphics.pdb
+C:\Users\sanya\OneDrive\Рабочий стол\source\repos\lr2graphics\obj\Release\lr2graphics.csprojAssemblyReference.cache
+C:\Users\sanya\OneDrive\Рабочий стол\source\repos\lr2graphics\obj\Release\lr2graphics.Form1.resources
+C:\Users\sanya\OneDrive\Рабочий стол\source\repos\lr2graphics\obj\Release\lr2graphics.Properties.Resources.resources
+C:\Users\sanya\OneDrive\Рабочий стол\source\repos\lr2graphics\obj\Release\lr2graphics.csproj.GenerateResource.cache
+C:\Users\sanya\OneDrive\Рабочий стол\source\repos\lr2graphics\obj\Release\lr2graphics.csproj.CoreCompileInputs.cache
+C:\Users\sanya\OneDrive\Рабочий стол\source\repos\lr2graphics\obj\Release\lr2graphics.exe
+C:\Users\sanya\OneDrive\Рабочий стол\source\repos\lr2graphics\obj\Release\lr2graphics.pdb

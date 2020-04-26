@@ -14,22 +14,32 @@ namespace lr2graphics
     {
         int oldTranslateX = 0;
         int oldTranslateY = 0;
+        float oldScaleX = 1;
+        float oldScaleY = 1;
+        int oldAngle = 0;
+
         Head head;
+        Body body;
         public Form1()
         {
             InitializeComponent();
             Normalize.WinWidth = pictureBox.ClientSize.Width;
             Normalize.WinHeight = pictureBox.ClientSize.Height;
             head = new Head();
+            body = new Body();
         }
 
         private void pictureBox_Paint(object sender, PaintEventArgs e)
         {
             Normalize.WinWidth = pictureBox.ClientSize.Width;
             Normalize.WinHeight = pictureBox.ClientSize.Height;
-            head.Draw(e.Graphics);
+
+            head.DrawObj(e.Graphics);
+            body.DrawObj(e.Graphics);
+
             DrawXAxis(e.Graphics);
             DrawYAxis(e.Graphics);
+            RelativePoint.Draw(e.Graphics);
         }
         //Рисование оси X
         private void DrawXAxis(Graphics e)
@@ -51,20 +61,107 @@ namespace lr2graphics
             }
         }
 
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+
+        private void Translate_ValueChanged(object sender, EventArgs e)
         {
-            int value = Convert.ToInt32(numericUpDown1.Value) -  oldTranslateX;
-            oldTranslateX = Convert.ToInt32(numericUpDown1.Value);
-            head.Translate(value,0);
+            int valueX = Convert.ToInt32(translateX.Value) - oldTranslateX;
+            oldTranslateX = Convert.ToInt32(translateX.Value);
+            int valueY = Convert.ToInt32(translateY.Value) - oldTranslateY;
+            oldTranslateY = Convert.ToInt32(translateY.Value);
+            head.Translate(valueX, valueY);
+            body.Translate(valueX, valueY);
             pictureBox.Refresh();
         }
 
-        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+
+        private void Rotate_ValueChanged(object sender, EventArgs e)
         {
-            int value = Convert.ToInt32(numericUpDown2.Value) - oldTranslateY;
-            oldTranslateY = Convert.ToInt32(numericUpDown2.Value);
-            head.Translate(0, -value);
+            int angle = Convert.ToInt32(Rotate.Value) - oldAngle;
+            oldAngle = Convert.ToInt32(Rotate.Value);
+            if (Rotate.Value == 360) Rotate.Value = 0;
+            else if (Rotate.Value == -1) Rotate.Value = 359;
+            head.Rotate(angle);
+            body.Rotate(angle);
             pictureBox.Refresh();
+        }
+
+        private void Scale_ValueChanged(object sender, EventArgs e)
+        {
+            float x = float.Parse(ScaleX.Value.ToString()) / oldScaleX;
+            oldScaleX = float.Parse(ScaleX.Value.ToString());
+            float y = float.Parse(ScaleY.Value.ToString()) / oldScaleY;
+            oldScaleY = float.Parse(ScaleY.Value.ToString());
+            head.Scale(x, y);
+            body.Scale(x, y);
+            pictureBox.Refresh();
+        }
+
+        private void checkHead_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBodyPart.Head = checkHead.Checked;
+            if (checkHead.Checked)
+            {
+                CheckBodyPart.Whisker1 = checkWhisker1.Checked = true;
+                CheckBodyPart.Whisker2 = checkWhisker2.Checked = true;
+                CheckBodyPart.Whisker3 = checkWhisker3.Checked = true;
+                CheckBodyPart.Whisker4 = checkWhisker4.Checked = true;
+                CheckBodyPart.Whisker5 = checkWhisker5.Checked = true;
+                CheckBodyPart.Whisker6 = checkWhisker6.Checked = true;
+                CheckBodyPart.Nose = checkNose.Checked = true;
+                CheckBodyPart.Eye1 = checkEye1.Checked = true;
+                CheckBodyPart.Eye2 = checkEye2.Checked = true;
+                CheckBodyPart.Ear1 = checkEar1.Checked = true;
+                CheckBodyPart.Ear2 = checkEar2.Checked = true;
+            }
+            else if (!checkHead.Checked)
+            {
+                CheckBodyPart.Whisker1 = checkWhisker1.Checked = false;
+                CheckBodyPart.Whisker2 = checkWhisker2.Checked = false;
+                CheckBodyPart.Whisker3 = checkWhisker3.Checked = false;
+                CheckBodyPart.Whisker4 = checkWhisker4.Checked = false;
+                CheckBodyPart.Whisker5 = checkWhisker5.Checked = false;
+                CheckBodyPart.Whisker6 = checkWhisker6.Checked = false;
+                CheckBodyPart.Nose = checkNose.Checked = false;
+                CheckBodyPart.Eye1 = checkEye1.Checked = false;
+                CheckBodyPart.Eye2 = checkEye2.Checked = false;
+                CheckBodyPart.Ear1 = checkEar1.Checked = false;
+                CheckBodyPart.Ear2 = checkEar2.Checked = false;
+            }
+        }
+
+        private void CheckParts(object sender, EventArgs e)
+        {
+            CheckBodyPart.Whisker1 = checkWhisker1.Checked;
+            CheckBodyPart.Whisker2 = checkWhisker2.Checked;
+            CheckBodyPart.Whisker3 = checkWhisker3.Checked;
+            CheckBodyPart.Whisker4 = checkWhisker4.Checked;
+            CheckBodyPart.Whisker5 = checkWhisker5.Checked;
+            CheckBodyPart.Whisker6 = checkWhisker6.Checked;
+            CheckBodyPart.Nose = checkNose.Checked;
+            CheckBodyPart.Eye1 = checkEye1.Checked;
+            CheckBodyPart.Eye2 = checkEye2.Checked;
+            CheckBodyPart.Ear1 = checkEar1.Checked;
+            CheckBodyPart.Ear2 = checkEar2.Checked;
+            CheckBodyPart.Foot1 = checkFoot1.Checked;
+            CheckBodyPart.Foot2 = checkFoot2.Checked;
+            CheckBodyPart.Tail = checkTail.Checked;
+        }
+
+        private void checkBody_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBodyPart.Body = checkBody.Checked;
+            if(checkBody.Checked)
+            {
+                CheckBodyPart.Foot1 = checkFoot1.Checked = true;
+                CheckBodyPart.Foot2 = checkFoot2.Checked = true;
+                CheckBodyPart.Tail = checkTail.Checked = true;
+            }
+            else if (!checkBody.Checked)
+            {
+                CheckBodyPart.Foot1 = checkFoot1.Checked = false;
+                CheckBodyPart.Foot2 = checkFoot2.Checked = false;
+                CheckBodyPart.Tail = checkTail.Checked = false;
+            }
         }
     }
 }
