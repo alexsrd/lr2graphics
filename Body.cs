@@ -10,8 +10,8 @@ namespace lr2graphics
     public class Body : TransformsObj
     {
         Tail tail = new Tail();
-        Foot leftFoot = new Foot(0, -1.8f);
-        Foot rightFoot = new Foot(-1.3f, -1.8f);
+        Foot rightFoot = new Foot(0, -1.8f);
+        Foot leftFoot = new Foot(-1.3f, -1.8f);
         public Body()
         {
             PointF[] points = new PointF[]
